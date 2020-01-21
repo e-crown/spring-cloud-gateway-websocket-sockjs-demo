@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: spring-cloud-eureka
+server:
+  port: 8761
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: false
+    registry-fetch-interval-seconds: 20
+  instance:
+    lease-expiration-duration-in-seconds: 15
+    lease-renewal-interval-in-seconds: 15
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${server.port}
+  server:
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 33000
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+logging:
+  level:
+    root: info
+  file: ../logs/${spring.application.name}.log

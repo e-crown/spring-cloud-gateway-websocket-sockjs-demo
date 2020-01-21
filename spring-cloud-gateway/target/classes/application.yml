@@ -1,0 +1,53 @@
+spring:
+  application:
+    name: spring-cloud-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true #启用路由访问
+          lower-case-service-id: true #启动服务名小写
+      # 跨域
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedHeaders: "*"
+            allowedOrigins: "*"
+            allowedMethods:
+              - GET
+                POST
+                DELETE
+                PUT
+                OPTION
+      routes:
+        - id: spring-cloud-websocket-client4
+          uri: lb:ws://spring-cloud-websocket-client
+          predicates:
+            - Path=/websocket/**
+          filters:
+            - StripPrefix=1
+
+  mvc:
+    throw-exception-if-no-handler-found: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    lease-expiration-duration-in-seconds: 30
+    lease-renewal-interval-in-seconds: 35
+server:
+  port: 10001
+
+gateway:
+  cors: ##跨域设置
+    allowOrigin:
+      enable: true
+      AllowedOrigins:
+      path:
+
+logging:
+  level:
+    root: info
+  file: ../logs/${spring.application.name}.log
