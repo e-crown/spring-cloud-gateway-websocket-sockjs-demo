@@ -7,10 +7,10 @@ spring:
         locator:
           enabled: true #启用路由访问
           lower-case-service-id: true #启动服务名小写
-      filter:
-        remove-non-proxy-headers:
-          headers:
-            - dummy
+#      filter:
+#        remove-non-proxy-headers:
+#          headers:
+#            - dummy
       routes:
         - id: spring-cloud-websocket-client4
           uri: lb:ws://spring-cloud-websocket-client
