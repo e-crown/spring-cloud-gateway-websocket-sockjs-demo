@@ -4,7 +4,7 @@
 
     <springProperty scope="context" name="projectName" source="spring.application.name"
                     defaultValue="spring-cloud-eureka"/>
-    <springProperty scope="context" name="logPath" source="logging.path" defaultValue="logs"/>
+    <springProperty scope="context" name="logPath" source="logging.path" defaultValue="logs/"/>
 
 
     <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
