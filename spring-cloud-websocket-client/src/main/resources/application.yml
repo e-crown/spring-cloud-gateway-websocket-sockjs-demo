@@ -7,6 +7,8 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
   instance:
     prefer-ip-address: true
+    # 指定此客户端的ip
+    ip-address: 192.168.0.2
     instance-id: ${spring.application.name}:${server.port}
     lease-expiration-duration-in-seconds: 30
     lease-renewal-interval-in-seconds: 35
