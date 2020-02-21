@@ -23,6 +23,7 @@ import static org.springframework.cloud.gateway.support.ServerWebExchangeUtils.G
 @Component
 public class WebsocketFilter implements GlobalFilter, Ordered {
     private final static String DEFAULT_FILTER_PATH = "/websocket/info";
+    private final static String DEFAULT_FILTER_PATH2 = "/websocket2/info";
 
     /**
      *
@@ -41,7 +42,7 @@ public class WebsocketFilter implements GlobalFilter, Ordered {
 
         if (!"ws".equals(scheme) && !"wss".equals(scheme)) {
             return chain.filter(exchange);
-        } else if (DEFAULT_FILTER_PATH.equals(requestUrl.getPath())) {
+        } else if (DEFAULT_FILTER_PATH.equals(requestUrl.getPath()) || DEFAULT_FILTER_PATH2.equals(requestUrl.getPath()) ) {
             String wsScheme = convertWsToHttp(scheme);
             URI wsRequestUrl = UriComponentsBuilder.fromUri(requestUrl).scheme(wsScheme).build().toUri();
             exchange.getAttributes().put(GATEWAY_REQUEST_URL_ATTR, wsRequestUrl);

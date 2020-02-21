@@ -35,6 +35,8 @@
     </appender>
 
     <logger name="org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver" level="debug"/>
+    <logger name="org.springframework.web.socket" level="trace"/>
+
     <root level="info">
         <appender-ref ref="file"/>
         <appender-ref ref="stdout"/>

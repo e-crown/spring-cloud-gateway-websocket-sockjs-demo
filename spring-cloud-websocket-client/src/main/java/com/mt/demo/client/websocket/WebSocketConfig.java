@@ -19,13 +19,13 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry){
         //客户端连接端点
-        registry.addEndpoint("/websocket")
+        registry.addEndpoint("/websocket","/websocket2")
                 .setAllowedOrigins("*")
                 .withSockJS();
     }
     @Override
     public void configureMessageBroker(MessageBrokerRegistry registry) {
-        registry.setApplicationDestinationPrefixes("/app");
-        registry.enableSimpleBroker("/topic");
+        registry.setApplicationDestinationPrefixes("/app","/app2");
+        registry.enableSimpleBroker("/topic","/topic2");
     }
 }
