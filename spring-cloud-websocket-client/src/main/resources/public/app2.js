@@ -13,7 +13,7 @@ function setConnected(connected) {
 }
 
 function connect() {
-    var host = "http://localhost:10001/websocket";
+    var host = "http://127.0.0.1:10001/websocket";
     var socket = new SockJS(host + '/websocket2');
     stompClient = Stomp.over(socket);
     stompClient.connect({}, function (frame) {

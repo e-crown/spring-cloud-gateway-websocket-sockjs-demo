@@ -15,7 +15,7 @@ eureka:
     lease-renewal-interval-in-seconds: 15
     prefer-ip-address: true
     # 指定此客户端的ip
-    ip-address: 192.168.0.2
+    ip-address: 127.0.0.1
     instance-id: ${spring.application.name}:${server.port}
   server:
     enable-self-preservation: false
