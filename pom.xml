@@ -12,6 +12,7 @@
     <groupId>com.mt.demo</groupId>
     <artifactId>spring-cloud-gateway-WebSocket</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
     <name>spring-cloud-gateway-WebSocket</name>
 
     <properties>

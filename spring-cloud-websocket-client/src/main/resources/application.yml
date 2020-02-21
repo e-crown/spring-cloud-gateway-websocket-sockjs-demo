@@ -4,17 +4,19 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://${cloud.eureka.host}:8761/eureka/
   instance:
     prefer-ip-address: true
     # 指定此客户端的ip
-    ip-address: 127.0.0.1
+    ip-address: ${cloud.eureka.host}
     instance-id: ${spring.application.name}:${server.port}
     lease-expiration-duration-in-seconds: 30
     lease-renewal-interval-in-seconds: 35
 server:
   port: 8801
-
+cloud:
+  eureka:
+    host: 127.0.0.1
 logging:
   level:
     root: info

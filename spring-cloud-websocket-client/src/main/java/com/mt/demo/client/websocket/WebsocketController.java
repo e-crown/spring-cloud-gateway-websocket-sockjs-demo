@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
@@ -24,7 +25,13 @@ public class WebsocketController {
     @Autowired
     private SimpMessagingTemplate template;
 
+    @Autowired
+    private Environment environment;
 
+    @GetMapping("/test")
+    public String test(@RequestParam("name") String name){
+        return environment.getProperty("cloud.eureka.host");
+    }
     /**
      * 前端主动调用
      * @param msg
